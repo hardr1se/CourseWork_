@@ -103,6 +103,7 @@ public class Intermediate {
                 System.out.println("id: " + person.getId() + ", ФИО работника: " + person.getFullName() + ", зарплата: " + person.getSalary());
             }
         }
+
         System.out.println("\nСотрудники с зарплатой меньше " + certainSalary + " рублей");
         for (Employee person : people) {
             if (person.getSalary() < certainSalary) {

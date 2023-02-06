@@ -46,6 +46,7 @@ public class Employee {
     public static Employee[] getPeople() {
         return people;
     }
+
     @Override
     public String toString() {
         return "ФИО работника: " + fullName + ", отдел: " + division + ", зарплата: " + salary;
