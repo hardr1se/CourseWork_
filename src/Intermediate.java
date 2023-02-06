@@ -1,4 +1,5 @@
 public class Intermediate {
+
     public static void main(String[] args) {
         //intermediate
         Employee[] people = Employee.getPeople();

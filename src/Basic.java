@@ -52,6 +52,7 @@ public class Basic {
         }
         System.out.println("\nСотрудник с максимальной зарплатой: " + people[maxSalaryEmployee]);
     }
+
     public static void middleSalary() {
         Employee[] people = Employee.getPeople();
         float monthlyExpenses = 0;

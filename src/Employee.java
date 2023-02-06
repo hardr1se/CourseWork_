@@ -12,6 +12,7 @@ public class Employee {
         this.division = division;
         this.salary = salary;
     }
+
     public int getId() { return id = id(); }
     public String getFullName() { return this.fullName; }
     public int getDivision() { return this.division; }

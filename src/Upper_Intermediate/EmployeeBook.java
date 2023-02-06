@@ -14,7 +14,8 @@ public class EmployeeBook {
         this.division = division;
         this.salary = salary;
     }
-    private static EmployeeBook[] people = new EmployeeBook[10];
+
+    private static final EmployeeBook[] people = new EmployeeBook[10];
 
     static  {
         EmployeeBook person1 = new EmployeeBook("Петров Петр Петрович", 2, 25_000);
