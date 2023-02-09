@@ -1,10 +1,15 @@
 package Upper_Intermediate;
 
+import java.sql.Array;
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class EmployeeBook {
     private static int id;
     private String fullName;
     private int division;
     private float salary;
+
     private static int id() {
         id++;
         return id;
@@ -18,7 +23,7 @@ public class EmployeeBook {
 
     private static final EmployeeBook[] people = new EmployeeBook[10];
 
-    static  {
+    static {
         EmployeeBook person1 = new EmployeeBook("Петров Петр Петрович", 2, 25_000);
         EmployeeBook person2 = new EmployeeBook("Павлов Павел Павлович", 3, 35_000);
         EmployeeBook person3 = new EmployeeBook("Алексеев Алексей Алексеевич", 4, 22_000);
@@ -51,36 +56,27 @@ public class EmployeeBook {
         }
     }
 
+    public static void main(String[] args) {
+        printAllSortedByDivisions();
+    }
+
+    public static class EmployeeDivisionSort implements Comparator<EmployeeBook> {
+        @Override
+        public int compare(EmployeeBook o1, EmployeeBook o2) {
+            return o1.division - o2.division;
+        }
+    }
+
+
     public static void printAllSortedByDivisions() {
-        System.out.println("Сотрудники из 1 отдела");
-        for (EmployeeBook person : people) {
-            if (person.division == 1) {
-                System.out.println(person.fullName);
+        Arrays.sort(people, new EmployeeDivisionSort());
+        int counter = 0;
+        for (int i = 0; i < people.length; i++) {
+            if (counter != people[i].division) {
+                System.out.println("\nСотрудники " + people[i].division + " отдела");
             }
-        }
-        System.out.println("\nСотрудники из 2 отдела");
-        for (EmployeeBook person : people) {
-            if (person.division == 2) {
-                System.out.println(person.fullName);
-            }
-        }
-        System.out.println("\nСотрудники из 3 отдела");
-        for (EmployeeBook person : people) {
-            if (person.division == 3) {
-                System.out.println(person.fullName);
-            }
-        }
-        System.out.println("\nСотрудники из 4 отдела");
-        for (EmployeeBook person : people) {
-            if (person.division == 4) {
-                System.out.println(person.fullName);
-            }
-        }
-        System.out.println("\nСотрудники из 5 отдела");
-        for (EmployeeBook person : people) {
-            if (person.division == 5) {
-                System.out.println(person.fullName);
-            }
+            System.out.println(people[i].fullName);
+            counter = people[i].division;
         }
     }
 
