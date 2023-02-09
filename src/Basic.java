@@ -1,6 +1,5 @@
 public class Basic {
     public static void main(String[] args) {
-        // Хранилище было в создано в классе Employee для удобства, чтобы не путаться
         //basic
         printAll();
         monthlyExpenses();

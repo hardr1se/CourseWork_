@@ -9,6 +9,7 @@ public class EmployeeBook {
         id++;
         return id;
     }
+
     public EmployeeBook(String fullName, int division, float salary) {
         this.fullName = fullName;
         this.division = division;
