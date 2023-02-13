@@ -1,36 +1,59 @@
+import java.util.Random;
+
 public class Employee {
+
+    private static int idCalculator = 1;
+    private Random random = new Random();
+
+    private int id;
     private String fullName;
     private int division;
-    private float salary;
-    private static int id() {
-        id++;
+    private int salary;
+
+    public Employee(String fullName) {
+        this.id = idCalculator++;
+        this.fullName = fullName;
+        this.division = random.nextInt(1, 6);
+        this.salary = random.nextInt(60_000, 80_000);
+    }
+
+    public int getId() {
         return id;
     }
-    private static int id;
-    public Employee(String fullName, int division, float salary) {
-        this.fullName = fullName;
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public int getDivision() {
+        return division;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setDivision(int division) {
         this.division = division;
+    }
+
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 
-    public int getId() { return id = id(); }
-    public String getFullName() { return this.fullName; }
-    public int getDivision() { return this.division; }
-    public float getSalary() { return this.salary; }
-    public void setDivision(int division) { this.division = division; }
-    public void setSalary(float salary) { this.salary = salary; }
-    public static Employee[] people = new Employee[10];
+    private static final Employee[] people = new Employee[10];
+
     static  {
-        Employee person1 = new Employee("Петров Петр Петрович", 2, 25_000);
-        Employee person2 = new Employee("Павлов Павел Павлович", 3, 35_000);
-        Employee person3 = new Employee("Алексеев Алексей Алексеевич", 4, 22_000);
-        Employee person4 = new Employee("Николаев Николай Николаевич", 1, 39_000);
-        Employee person5 = new Employee("Александров Александр Александрович", 5, 31_000);
-        Employee person6 = new Employee("Павлов Павел Павлович", 3, 28_000);
-        Employee person7 = new Employee("Алексеев Алексей Алексеевич", 3, 32_000);
-        Employee person8 = new Employee("Николаев Николай Николаевич", 2, 32_000);
-        Employee person9 = new Employee("Александров Александр Александрович", 1, 19_000);
-        Employee person10 = new Employee("Павлов Павел Павлович", 2, 28_000);
+        Employee person1 = new Employee("Петров Петр Петрович");
+        Employee person2 = new Employee("Павлов Павел Павлович");
+        Employee person3 = new Employee("Алексеев Алексей Алексеевич");
+        Employee person4 = new Employee("Николаев Николай Николаевич");
+        Employee person5 = new Employee("Александров Александр Александрович");
+        Employee person6 = new Employee("Павлов Павел Павлович");
+        Employee person7 = new Employee("Алексеев Алексей Алексеевич");
+        Employee person8 = new Employee("Николаев Николай Николаевич");
+        Employee person9 = new Employee("Александров Александр Александрович");
+        Employee person10 = new Employee("Павлов Павел Павлович");
 
         people[0] = person1;
         people[1] = person2;
@@ -43,13 +66,14 @@ public class Employee {
         people[8] = person9;
         people[9] = person10;
     }
+
     public static Employee[] getPeople() {
         return people;
     }
 
     @Override
     public String toString() {
-        return "ФИО работника: " + fullName + ", отдел: " + division + ", зарплата: " + salary;
+        return String.format("id = %d, ФИО работника: %s, отдел: %d, зарплата: %d",
+                getId(), getFullName(), getDivision(), getSalary());
     }
 }
-
